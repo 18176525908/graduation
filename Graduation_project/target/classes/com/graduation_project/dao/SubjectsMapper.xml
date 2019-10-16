@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.graduation_project.dao.SubjectsMapper">
+
+<select id="selectAllSubjects" parameterType="com.graduation_project.entity.Subjects" resultType="com.graduation_project.entity.Subjects">
+select * from subjects
+</select>
+
+<insert id="addSubjects" parameterType="subjects" >
+insert into subjects(su_name,su_description,tea_ID) value(#{su_name},#{su_description},#{tea_ID})
+</insert>
+
+<select id="selectSubjectsById" parameterType="int" resultType="subjects">
+select * from subjects where su_id = #{su_id}
+</select>
+
+<update id="updateSubjects" parameterType="subjects">
+update subjects 
+<trim prefix="set" suffixOverrides=",">
+			<if test="su_name !=null and !su_name.equals('')">
+				su_name=#{su_name},
+			</if>
+			<if test="su_description != null and !su_description.equals('')">
+				su_description=#{su_description},
+			</if>
+			<if test="tea_ID !=null and !tea_ID.equals('')">
+				tea_ID=#{tea_ID},
+			</if>
+		</trim> 
+	where su_id=#{su_id}
+	</update>
+
+<delete id="deleteSubjects" parameterType="int">
+delete from subjects where su_id=#{su_id}
+</delete>
+</mapper>

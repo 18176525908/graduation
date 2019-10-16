@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.graduation_project.dao.DissertationMapper">
+
+<select id="selectAllDissertation" parameterType="dissertation" resultType="dissertation">
+select * from dissertation
+</select>
+
+<select id="selectDissertationById" parameterType="int" resultType="dissertation">
+select * from dissertation where d_id = #{d_id}
+</select>
+
+<update id="updateDissertation" parameterType="dissertation">
+update dissertation 
+<trim prefix="set" suffixOverrides=",">
+			<if test="d_name !=null and !d_name.equals('')">
+				d_name=#{d_name},
+			</if>
+			<if test="d_address != null and !d_address.equals('')">
+				d_address=#{d_address},
+			</if>
+			<if test="d_comment !=null and !d_comment.equals('')">
+				d_comment=#{d_comment},
+			</if>
+			<if test="d_score !=null and !d_score.equals('')">
+				d_score=#{d_score},
+			</if>
+			<if test="stu_ID !=null and !stu_ID.equals('')">
+				stu_ID=#{stu_ID},
+			</if>
+			<if test="tea_ID !=null and !tea_ID.equals('')">
+				tea_ID=#{tea_ID},
+			</if>
+		</trim> 
+	where d_id=#{d_id}
+	</update>
+
+</mapper>
