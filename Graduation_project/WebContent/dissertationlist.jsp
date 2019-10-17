@@ -24,7 +24,7 @@
 		<tr>
 			<td>${d.d_id}</td>
 			<td>${d.d_name}</td>
-			<td>${d.d_address}</td>
+			<td><a href="selectDissertationByaddress?d_address=${d.d_address}">${d.d_address}</a></td>
 			<td>${d.d_comment}</td>
 			<td>${d.d_score}</td>
 			<td>${d.stu_ID}</td>

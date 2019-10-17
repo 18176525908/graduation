@@ -16,6 +16,9 @@ public class SubjectsController {
 	@Autowired
 	private SubjectsService  ss;
 	
+	/**
+	 * 查看所有的课题
+	 */
 	@RequestMapping("/selectAllSubjects")
 	public String selectAllSubjects(Model model) {
 		List<Subjects> ls = ss.selectAllSubjects();
@@ -23,12 +26,18 @@ public class SubjectsController {
 		return "subjectslist";
 	}
 	
+	/**
+	 * 添加课题
+	 */
 	@RequestMapping("/addSubjects")
 	public String addSubjects(Subjects subjects) {
 		boolean row = ss.addSubjects(subjects);
 		return "forward:selectAllSubjects";
 	}
 	
+	/**
+	 * 通过id查看课题
+	 */
 	@RequestMapping("/selectSubjectsById")
 	public String selectSubjectsById(Model model,int su_id) {
 		Subjects s = ss.selectSubjectsById(su_id);
@@ -36,15 +45,33 @@ public class SubjectsController {
 		return "updatesubjects";
 	}
 	
+	/**
+	 * 修改课题信息
+	 */
 	@RequestMapping("/updateSubjects")
 	public String updateSubjects(Subjects subjects) {
 		boolean result = ss.updateSubjects(subjects);
 		return "forward:selectAllSubjects";
 	}
 	
+	/**
+	 * 删除课题
+	 */
 	@RequestMapping("/delectSubjects")
-	public String deleteSubjects(int su_id) {
+	public String deleteSubjects(int su_id){
 		int result = ss.deleteSubjects(su_id);
 		return "forward:selectAllSubjects";
 	}
+	
+	/**
+	 * 通过课题名查看课题
+	 */
+	@RequestMapping("/selectSubjectsByName")
+	public String selectSubjectsByName(Model model,String su_name) {
+		List<Subjects> ls = ss.selectSubjectsByName(su_name);
+		model.addAttribute("subjects",ls);
+		return "subjectslist";
+	}
+	
+	
 }

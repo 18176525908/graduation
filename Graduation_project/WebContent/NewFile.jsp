@@ -9,5 +9,6 @@
 <body>
 <a href="selectAllSubjects">所有课题信息</a>
 <a href="selectAllDissertation">毕业设计</a>
+<a href="selectAllTeacher">个人信息</a>
 </body>
 </html>

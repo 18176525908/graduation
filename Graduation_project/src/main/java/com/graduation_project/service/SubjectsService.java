@@ -36,4 +36,8 @@ public class SubjectsService {
 		int result = sm.deleteSubjects(su_id);
 		return result;
 	}
+	
+	public List<Subjects> selectSubjectsByName(String su_name) {
+		return sm.selectSubjectsByName(su_name);
+	}
 }

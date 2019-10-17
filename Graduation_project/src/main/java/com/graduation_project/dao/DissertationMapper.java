@@ -9,8 +9,8 @@ public interface DissertationMapper {
 	public List<Dissertation> selectAllDissertation();
 	
 	public Dissertation selectDissertationById(int d_id);
-	
-//	public Dissertation selectDissertationBy(String );
 
 	public boolean updateDissertation(Dissertation dissertation);
+
+	public Dissertation selectDissertationByaddress(String d_address);
 }

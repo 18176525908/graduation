@@ -38,4 +38,7 @@ update dissertation
 	where d_id=#{d_id}
 	</update>
 
+<select id="selectDissertationByaddress" parameterType="String" resultType="dissertation">
+select * from dissertation where d_address = #{d_address}
+</select>
 </mapper>

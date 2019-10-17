@@ -20,7 +20,7 @@
 		<c:forEach items="${subjects }" var="s">
 		<tr>
 			<td>${s.su_id}</td>
-			<td>${s.su_name}</td>
+			<td><a href="selectSubjectsByName?su_name=${s.su_name}">${s.su_name}</a></td>
 			<td>${s.su_description}</td>
 			<td>${s.tea_ID}</td>
 			<td>

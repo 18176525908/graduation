@@ -29,9 +29,11 @@ public class DissertationService {
 		boolean result = dm.updateDissertation(dissertation);
 		return true;
 	}
+
+
+	public Dissertation selectDissertationByaddress(String d_address) {
+		
+		return dm.selectDissertationByaddress(d_address);
+	}
 	
-	/*public boolean updateSubjects(Subjects subjects) {
-		boolean result = sm.updateSubjects(subjects);
-		return result;
-	}*/
 }

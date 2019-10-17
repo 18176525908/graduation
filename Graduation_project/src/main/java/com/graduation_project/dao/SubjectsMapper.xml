@@ -36,4 +36,8 @@ update subjects
 <delete id="deleteSubjects" parameterType="int">
 delete from subjects where su_id=#{su_id}
 </delete>
+
+<select id="selectSubjectsByName" parameterType="String" resultType="subjects">
+select * from subjects where su_name = #{su_name}
+</select>
 </mapper>

@@ -15,4 +15,6 @@ public interface SubjectsMapper {
 	public boolean updateSubjects(Subjects subjects);
 	
 	public int deleteSubjects(int su_id);
+	
+	public List<Subjects> selectSubjectsByName(String su_name);
 }
